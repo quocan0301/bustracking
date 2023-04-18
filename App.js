@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, ImageBackground } from 'react-native';
+import { Text, TextInput, View, StyleSheet, ImageBackground } from 'react-native';
 import Constants from 'expo-constants';
 
 // You can import from local files
@@ -15,7 +15,10 @@ import ScreensController from './Layout/ScreensController'
 
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
-
+import WebViewMap from './components/WebViewMap';
+import addressAutocomplete from './helper/addressAutocomplete';
+import MapView from 'react-native-maps';
+import  * as MapViewClass from './helper/MapViewClass';
 
 export default function App() {
 
@@ -30,8 +33,27 @@ export default function App() {
   return (
     <View style={styles.container}>
      {isSplashShowing ?  <SplashScreen/> : <ScreensController/>}
+
     </View>
   );
+}
+
+function TestScreen() {
+  const AA= new addressAutocomplete()
+  const ControlPannel= new MapViewClass.MapControlPanel()
+
+  return (
+    <View style={styles.container}>
+      <TextInput
+        onChangeText={text=>AA.Run(()=>{},text)}
+        placeholder="Enter Address"/>
+
+      <MapView {...a}>
+        
+
+      </MapView>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({

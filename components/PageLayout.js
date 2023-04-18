@@ -31,8 +31,8 @@ export default function PageLayout() {
           <Destination
             showTicketsPage={showTicketsPage}
             setShowTicketsPage={setShowTicketsPage}
-          />
-        ) : (
+          />)
+         : (
           <Tickets />
         )}
       </View>
